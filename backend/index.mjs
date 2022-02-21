@@ -26,7 +26,7 @@ let nonce = null;
 let isExitRequested = false;
 
 const BLOCK_EXPIRATION_MS = ms('15s');
-const EXPIRATION_SECONDS = 86400;
+const EXPIRATION_SECONDS = 900;
 const limitsFilename = path.join(__dirname, 'limits.json');
 const ipsFilename = path.join(__dirname, 'ips.json');
 let limits = {};
@@ -163,7 +163,7 @@ async function executeTransaction({ address, ip }) {
     to: address,
     value: weiPerAddress.toString(),
     gas: web3.utils.toHex(70000),
-    maxFeePerGas: web3.utils.toHex(web3.utils.toWei('100', 'gwei')),
+    maxFeePerGas: web3.utils.toHex(web3.utils.toWei('5', 'gwei')),
     maxPriorityFeePerGas: web3.utils.toHex(web3.utils.toWei('5', 'gwei')),
     nonce
   };
